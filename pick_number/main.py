@@ -64,12 +64,12 @@ class root_object(GridLayout):
       rand_int = random.randint(min_int, max_int)
       break_condition = (len(used_int) == select_int) or (len(used_int) == (max_int - min_int + 1))
 
-      if break_condition:
-        break
-
       if rand_int not in used_int:
         result += str(rand_int) + ('' if break_condition else ', ')
         used_int.append(rand_int)
+
+      if break_condition:
+        break
 
     popup = ctypes.windll.user32.MessageBoxA
     popup(None, result, 'Result', 0)
